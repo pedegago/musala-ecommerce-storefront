@@ -90,3 +90,9 @@
         border-radius: 0;
     }
 }
+
+.home-note {
+    @extend .text-center, .text-danger;
+
+    max-width: 500px;
+}

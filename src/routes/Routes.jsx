@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
+import Details from "../pages/Details";
 import Checkout from "../pages/Checkout";
 import ThankYou from "../pages/ThankYou";
 import Error404 from "../pages/404";
@@ -11,7 +12,9 @@ const Routes = () => {
         <Switch>
             <Route exact path="/" component={Home} />
 
-            <Route path="/products" component={Products} />
+            <Route exact path="/products" component={Products} />
+
+            <Route path="/products/:url" component={Details} />
 
             <Route path="/checkout" component={Checkout} />
 

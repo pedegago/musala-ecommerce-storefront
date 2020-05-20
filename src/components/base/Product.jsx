@@ -21,6 +21,7 @@ const Product = ({ product, details }) => {
                 {details && (
                     <div className="product-description">{description}</div>
                 )}
+                {details && "Quantity:"}
                 <Counter product={product} />
             </div>
         </div>

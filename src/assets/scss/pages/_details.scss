@@ -1,0 +1,43 @@
+.details {
+    .product {
+        @extend .row;
+    }
+
+    h2 {
+        @extend .text-dark;
+
+        @include font(32px, 200);
+    }
+
+    .product-label {
+        z-index: 1;
+    }
+
+    .product > a {
+        @extend .col-md-6, .mb-5, .mb-md-0;
+    }
+
+    .product-body {
+        @extend .col-md-6;
+    }
+
+    img {
+        @extend .w-100;
+    }
+
+    .product-price {
+        @extend .mt-2;
+
+        @include font(24px);
+    }
+
+    .product-description {
+        @extend .my-4;
+    }
+
+    .counter {
+        @extend .mt-2;
+
+        max-width: 180px;
+    }
+}

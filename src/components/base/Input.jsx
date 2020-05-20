@@ -1,13 +1,13 @@
 import React from "react";
-import { FormFeedback, FormText, Label, Input as _Input } from "reactstrap";
+import { FormFeedback, FormText, Label, Input } from "reactstrap";
 
-const Input = ({ name, inputs, inputChange, help, validator }) => {
+const _Input = ({ name, inputs, inputChange, help, validator }) => {
     return (
         <>
             <Label for={name}>
                 {`${name[0].toUpperCase()}${name.substr(1)}`.replace("_", " ")}
             </Label>
-            <_Input
+            <Input
                 id={name}
                 name={name}
                 value={inputs[name] || ""}
@@ -20,4 +20,4 @@ const Input = ({ name, inputs, inputChange, help, validator }) => {
     );
 };
 
-export default Input;
+export default _Input;

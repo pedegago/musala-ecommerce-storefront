@@ -15,7 +15,7 @@ const ThankYou = () => {
 
     const email = useRef(order.email);
 
-    if (!location.state.from_checkout) {
+    if (!location.state || !location.state.from_checkout) {
         history.replace("/");
 
         return null;

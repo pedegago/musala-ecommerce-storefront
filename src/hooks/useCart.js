@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { stateContext } from "../components/contexts/StateProvider";
+import { getStorage, setStorage } from "../utils/utils";
 
 const useCart = () => {
     const {
@@ -7,16 +8,28 @@ const useCart = () => {
         setState
     } = useContext(stateContext);
 
+    useEffect(() => {
+        const cart = getStorage("cart") || [];
+
+        setState({ cart });
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const add = product => {
         const item = { ...product, quantity: 1 };
 
-        setState({
-            cart: [...cart, item]
-        });
+        const items = [...cart, item];
+
+        setStorage("cart", items);
+
+        setState({ cart: items });
     };
 
     const remove = id => {
         const items = cart.filter(i => i.id !== id);
+
+        setStorage("cart", items);
 
         setState({ cart: items });
     };
@@ -31,6 +44,8 @@ const useCart = () => {
                 if (i.id === id) i.quantity = quantity;
             });
         }
+
+        setStorage("cart", items);
 
         setState({ cart: items });
     };
