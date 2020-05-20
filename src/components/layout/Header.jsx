@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
     Collapse,
     Navbar,
@@ -23,6 +23,8 @@ const Header = () => {
         setState
     } = useContext(stateContext);
 
+    const location = useLocation();
+
     const toggle = () => setIsOpen(isOpen => !isOpen);
 
     const openCart = () => {
@@ -33,6 +35,8 @@ const Header = () => {
 
     const length = cart.length;
 
+    const isCheckout = location.pathname === "/checkout";
+
     return (
         <header>
             <Navbar color="dark" dark expand="sm">
@@ -42,20 +46,22 @@ const Header = () => {
                 <Button color="link" className="header-option">
                     <Person />
                 </Button>
-                <Button
-                    color="link"
-                    className="header-option header-option--small"
-                    title={`You have ${length} items in the cart`}
-                    onClick={openCart}
-                >
-                    <Bag />
-                    {!!length && (
-                        <>
-                            &nbsp;
-                            <Badge color="primary">{length}</Badge>
-                        </>
-                    )}
-                </Button>
+                {!isCheckout && (
+                    <Button
+                        color="link"
+                        className="header-option header-option--small"
+                        title={`You have ${length} items in the cart`}
+                        onClick={openCart}
+                    >
+                        <Bag />
+                        {!!length && (
+                            <>
+                                &nbsp;
+                                <Badge color="primary">{length}</Badge>
+                            </>
+                        )}
+                    </Button>
+                )}
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar tag="nav">

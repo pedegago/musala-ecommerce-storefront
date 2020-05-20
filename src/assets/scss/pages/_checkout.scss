@@ -1,2 +1,27 @@
 .checkout {
+    h2 {
+        @extend .mb-4;
+
+        @include font(19px, 200);
+    }
+
+    .checkout-summary {
+        @extend .order-md-1, .mb-4, .mb-md-0;
+    }
+
+    .checkout-summary-wrapper {
+        @extend  .border, .rounded, .p-4;
+    }
+
+    li {
+        &:first-of-type {
+            @extend .mt-3;
+        }
+
+        &:last-child {
+            @extend .pb-0;
+
+            border-bottom: 0!important;
+        }
+    }
 }

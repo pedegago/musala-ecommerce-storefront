@@ -9,11 +9,7 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col tag="address" md={6}>
-                        <Link
-                            to="/"
-                            title="Go to home"
-                            className="footer-logo"
-                        >
+                        <Link to="/" title="Go to home" className="footer-logo">
                             <Logo />
                         </Link>
                         World Trade Center 36, Dragan Tsankov blvd. Sofia 1057,

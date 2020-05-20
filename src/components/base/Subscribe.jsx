@@ -3,25 +3,28 @@ import { Row, Col, Form, Input, Button, Container } from "reactstrap";
 
 const Subscribe = () => {
     const subscribe = e => {
-        const email = document.getElementById("email");
+        const form = document.getElementById("subscription-form");
 
-        if (!email.checkValidity()) return;
-
-        e.preventDefault();
+        if (!form.checkValidity()) return;
 
         alert("You are subscribed now!");
+
+        e.preventDefault();
     };
 
     return (
         <section className="subscribe">
             <Container>
-                <Form action="/" tag={Row} className="align-items-center">
+                <Row
+                    id="subscription-form"
+                    tag={Form}
+                    className="align-items-center"
+                >
                     <Col tag="h2" md={6}>
                         I want to know about new framed artworks.
                     </Col>
                     <Col md={6} className="subscribe-control">
                         <Input
-                            id="email"
                             name="email"
                             type="email"
                             required
@@ -36,7 +39,7 @@ const Subscribe = () => {
                             Subscribe
                         </Button>
                     </Col>
-                </Form>
+                </Row>
             </Container>
         </section>
     );

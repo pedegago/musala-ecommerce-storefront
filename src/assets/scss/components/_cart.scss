@@ -1,6 +1,4 @@
 .cart {
-    // .modal
-
     h2 {
         @include font(17px);
 
@@ -12,17 +10,14 @@
     ul {
         @extend .my-4;
     }
+}
 
-    li {
-        @extend .border-top, .border-bottom;
+.cart-list {
+    @extend .border-top, .border-bottom;
 
-        @extend .py-3;
+    @extend .py-3;
 
-        margin-bottom: -1px;
-
-        &:not(:last-child) {
-        }
-    }
+    margin-bottom: -1px;
 
     button {
         @extend .close, .py-1, .px-2;
