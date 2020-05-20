@@ -1,0 +1,36 @@
+ol,
+ul {
+    list-style: none;
+}
+
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+address,
+blockquote {
+    margin: 0;
+}
+
+.title {
+    @extend .mb-5;
+
+    @include font(1.3rem, 200);
+}
+
+.spacing {
+    @extend .my-5;
+}
+
+.product-label {
+    @extend .bg-danger,
+        .text-light,
+        .py-1,
+        .px-2,
+        .d-inline-block,
+        .position-absolute,
+        .mt-5,
+        .shadow;
+}

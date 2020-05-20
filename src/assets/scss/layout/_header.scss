@@ -1,0 +1,41 @@
+header {
+    @extend .sticky-top, .shadow;
+
+    .navbar-brand {
+        svg {
+            width: 35px;
+
+            @include media-breakpoint-up(sm) {
+                width: 55px;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        @extend .border-0;
+    }
+
+    button {
+        @extend .order-sm-1, .ml-4;
+
+        &:first-of-type {
+            @extend .ml-auto;
+        }
+    }
+
+    .header-option {
+        &.header-option--small {
+            svg {
+                @extend .align-top;
+
+                @include _size(22px);
+            }
+        }
+
+        svg {
+            @include _size(25px);
+
+            color: rgb(183, 186, 189);
+        }
+    }
+}

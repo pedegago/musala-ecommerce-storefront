@@ -1,0 +1,9 @@
+#root {
+    @extend .d-flex, .flex-column;
+
+    min-height: 100vh;
+
+    main {
+        @extend .mb-auto;
+    }
+}

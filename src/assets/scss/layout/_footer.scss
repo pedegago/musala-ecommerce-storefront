@@ -1,0 +1,33 @@
+footer {
+    @extend .bg-primary, .py-4, .text-light;
+
+    a {
+        @extend .text-light;
+    }
+
+    [class*="col-"]:not(:first-child) {
+        @extend .mt-3, .mt-md-0;
+    }
+
+    h2 {
+        @extend .nav-link;
+
+        @include font(1.3rem, 200);
+    }
+
+    .footer-logo {
+        @extend .mb-3, .d-block, .text-center, .text-md-left;
+
+        svg {
+            width: 55px;
+
+            @include media-breakpoint-up(sm) {
+                width: 75px;
+            }
+
+            g * {
+                fill: $light;
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.cart {
+    // .modal
+
+    h2 {
+        @include font(17px);
+
+        span {
+            @extend .text-danger;
+        }
+    }
+
+    ul {
+        @extend .my-4;
+    }
+
+    li {
+        @extend .border-top, .border-bottom;
+
+        @extend .py-3;
+
+        margin-bottom: -1px;
+
+        &:not(:last-child) {
+        }
+    }
+
+    button {
+        @extend .close, .py-1, .px-2;
+    }
+
+    img {
+        width: 55px;
+    }
+
+    h3 {
+        @extend .mb-1;
+
+        @include font(16px);
+    }
+}

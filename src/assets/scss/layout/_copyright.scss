@@ -1,0 +1,7 @@
+.copyright {
+    @extend .bg-light, .py-2;
+
+    small {
+        @extend .d-block;
+    }
+}

@@ -1,0 +1,21 @@
+@mixin font($size, $weight: false, $family: false) {
+    font-size: $size;
+
+    @if $weight != false {
+        font-weight: $weight;
+    }
+
+    @if $family != false {
+        font-family: $family;
+    }
+}
+
+@mixin _size($height, $width: false) {
+    height: $height;
+
+    @if $width == false {
+        width: $height;
+    } @else {
+        width: $width;
+    }
+}

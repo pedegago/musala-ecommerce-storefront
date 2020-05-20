@@ -1,0 +1,32 @@
+import React from "react";
+import Hero from "../components/base/Hero";
+import BestSellers from "../components/base/BestSellers";
+import Reviews from "../components/base/Reviews";
+
+const heroItems = [
+    {
+        title: "See our summer's offers",
+        caption:
+            "For this season we provice themed artworks. Install it and be the best employee of your office!"
+    },
+    {
+        title: "We provide awesome artworks.",
+        caption:
+            "We have in our store more than 1000 different artworks designed for any room."
+    }
+];
+
+const Home = () => {
+    return (
+        <>
+            <h1 className="home-title">
+                This is a Musala Soft Framed Artworks Store for your wall.
+            </h1>
+            <Hero items={heroItems} />
+            <BestSellers />
+            <Reviews />
+        </>
+    );
+};
+
+export default Home;
