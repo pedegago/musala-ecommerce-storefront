@@ -3,7 +3,7 @@ export const checkoutRules = [
         field: "email",
         method: "isEmail",
         validWhen: true,
-        message: "That is not a valid email."
+        message: "Invalid email format."
     },
     {
         field: "fullname",
@@ -74,5 +74,20 @@ export const checkoutRules = [
         args: [/^\d{3}$/],
         validWhen: true,
         message: "Invalid card code."
+    }
+];
+
+export const signinRules = [
+    {
+        field: "username",
+        method: "isEmail",
+        validWhen: true,
+        message: "Invalid email format."
+    },
+    {
+        field: "password",
+        method: "isEmpty",
+        validWhen: false,
+        message: "The password is required."
     }
 ];

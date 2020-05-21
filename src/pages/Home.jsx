@@ -29,7 +29,7 @@ const Home = () => {
             <Container tag="section" className="home-note spacing">
                 <h2 className="title">Note</h2>
                 This application is just a programming task for applying for
-                Musala Soft. Crated by Pablo David Gago Ballester. @pedegago at
+                Musala Soft completely created from scratch. Crated by Pablo David Gago Ballester. @pedegago at
                 Twitter.
             </Container>
         </>

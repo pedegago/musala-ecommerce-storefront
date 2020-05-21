@@ -11,9 +11,6 @@ import {
     Badge
 } from "reactstrap";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
-import { ReactComponent as Person } from "bootstrap-icons/icons/person.svg";
-import { ReactComponent as Exit } from "bootstrap-icons/icons/box-arrow-in-right.svg";
-import { ReactComponent as Bag } from "bootstrap-icons/icons/bag.svg";
 import { stateContext } from "../contexts/StateProvider";
 import useAuth from "../../hooks/useAuth";
 
@@ -27,7 +24,7 @@ const Header = () => {
 
     const location = useLocation();
 
-    const { auth, toggleLogin } = useAuth();
+    const { auth, signedIn, login, logout } = useAuth();
 
     const toggle = () => setIsOpen(isOpen => !isOpen);
 
@@ -50,20 +47,27 @@ const Header = () => {
                 <Button
                     color="link"
                     className="header-option"
-                    onClick={() => {
-                        toggleLogin(!auth.signedIn);
-                    }}
+                    onClick={signedIn ? logout : login}
+                    title={signedIn ? "Signout" : "Singin"}
                 >
-                    {auth.signedIn ? <Exit /> : <Person />}
+                    <span
+                        role="img"
+                        aria-label={signedIn ? "Signout" : "Singin"}
+                    >
+                        {signedIn ? "🔒 " : "🔓 "}
+                    </span>
+                    {signedIn ? `Signed in as: ${auth.username}` : "Sign in"}
                 </Button>
                 {!isCheckout && (
                     <Button
                         color="link"
-                        className="header-option header-option--small"
+                        className="header-option"
                         title={`You have ${length} items in the cart`}
                         onClick={openCart}
                     >
-                        <Bag />
+                        <span role="img" aria-label="Cart">
+                            🛒
+                        </span>
                         {!!length && (
                             <>
                                 &nbsp;
@@ -85,7 +89,7 @@ const Header = () => {
                         >
                             Products
                         </NavLink>
-                        {auth.signedIn && (
+                        {signedIn && (
                             <>
                                 <NavLink tag={Link} to="/orders" title="Orders">
                                     Orders

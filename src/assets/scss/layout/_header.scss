@@ -24,18 +24,10 @@ header {
     }
 
     .header-option {
-        &.header-option--small {
-            svg {
-                @extend .align-top;
+        @extend .text-warning;
 
-                @include _size(22px);
-            }
-        }
-
-        svg {
-            @include _size(25px);
-
-            color: rgb(183, 186, 189);
+        span[role="img"] {
+            @include font(16px);
         }
     }
 }

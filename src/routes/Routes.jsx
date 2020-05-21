@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
+import Signin from "../pages/Signin";
+import Profile from "../pages/Profile";
 import Products from "../pages/Products";
 import Details from "../pages/Details";
 import Checkout from "../pages/Checkout";
@@ -11,6 +13,10 @@ const Routes = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
+
+            <Route path="/signin" component={Signin} />
+
+            <Route path="/profile" component={Profile} />
 
             <Route exact path="/products" component={Products} />
 
