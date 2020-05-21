@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col } from "reactstrap";
+import { Container } from "reactstrap";
 import Product from "../components/base/Product";
 import useProducts from "../hooks/useProducts";
 import Reviews from "../components/base/Reviews";

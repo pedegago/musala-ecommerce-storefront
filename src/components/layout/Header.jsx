@@ -12,8 +12,10 @@ import {
 } from "reactstrap";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import { ReactComponent as Person } from "bootstrap-icons/icons/person.svg";
+import { ReactComponent as Exit } from "bootstrap-icons/icons/box-arrow-in-right.svg";
 import { ReactComponent as Bag } from "bootstrap-icons/icons/bag.svg";
 import { stateContext } from "../contexts/StateProvider";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +26,8 @@ const Header = () => {
     } = useContext(stateContext);
 
     const location = useLocation();
+
+    const { auth, toggleLogin } = useAuth();
 
     const toggle = () => setIsOpen(isOpen => !isOpen);
 
@@ -43,8 +47,14 @@ const Header = () => {
                 <NavbarBrand tag={Link} to="/" title="Go to home">
                     <Logo />
                 </NavbarBrand>
-                <Button color="link" className="header-option">
-                    <Person />
+                <Button
+                    color="link"
+                    className="header-option"
+                    onClick={() => {
+                        toggleLogin(!auth.signedIn);
+                    }}
+                >
+                    {auth.signedIn ? <Exit /> : <Person />}
                 </Button>
                 {!isCheckout && (
                     <Button
@@ -75,12 +85,20 @@ const Header = () => {
                         >
                             Products
                         </NavLink>
-                        <NavLink tag={Link} to="/orders" title="Orders">
-                            Orders
-                        </NavLink>
-                        <NavLink tag={Link} to="/profile" title="User profile">
-                            Profile
-                        </NavLink>
+                        {auth.signedIn && (
+                            <>
+                                <NavLink tag={Link} to="/orders" title="Orders">
+                                    Orders
+                                </NavLink>
+                                <NavLink
+                                    tag={Link}
+                                    to="/profile"
+                                    title="User profile"
+                                >
+                                    Profile
+                                </NavLink>
+                            </>
+                        )}
                     </Nav>
                 </Collapse>
             </Navbar>
