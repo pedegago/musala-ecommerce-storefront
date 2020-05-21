@@ -91,3 +91,12 @@ export const signinRules = [
         message: "The password is required."
     }
 ];
+
+export const profileRules = [
+    {
+        field: "password",
+        method: "isEmpty",
+        validWhen: false,
+        message: "The password is required."
+    }
+];

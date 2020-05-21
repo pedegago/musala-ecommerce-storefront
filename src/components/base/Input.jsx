@@ -1,7 +1,7 @@
 import React from "react";
 import { FormFeedback, FormText, Label, Input } from "reactstrap";
 
-const _Input = ({ name, inputs, inputChange, help, validator, type }) => {
+const _Input = ({ name, inputs, inputChange, help, validator, ...props }) => {
     return (
         <>
             <Label for={name}>
@@ -10,7 +10,8 @@ const _Input = ({ name, inputs, inputChange, help, validator, type }) => {
             <Input
                 id={name}
                 name={name}
-                type={type || "text"}
+                type={props.type || "text"}
+                readOnly={props.readOnly}
                 value={inputs[name] || ""}
                 onChange={inputChange}
                 invalid={validator[name].isInvalid}

@@ -1,0 +1,17 @@
+.profile {
+    h1 {
+        @extend .text-center;
+    }
+
+    .form-group {
+        p {
+            @include font(18px, 700);
+        }
+    }
+
+    form {
+        @extend .mx-auto;
+
+        max-width: 340px;
+    }
+}

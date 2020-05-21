@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import {
     Collapse,
     Navbar,
@@ -17,14 +17,16 @@ import useAuth from "../../hooks/useAuth";
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const { auth, signedIn, signout } = useAuth();
+
+    const history = useHistory();
+
+    const location = useLocation();
+
     const {
         state: { ui, cart },
         setState
     } = useContext(stateContext);
-
-    const location = useLocation();
-
-    const { auth, signedIn, login, logout } = useAuth();
 
     const toggle = () => setIsOpen(isOpen => !isOpen);
 
@@ -32,6 +34,10 @@ const Header = () => {
         setState({
             ui: { ...ui, cart_open: true }
         });
+    };
+
+    const handleAuth = () => {
+        signedIn ? signout() : history.push("/signin");
     };
 
     const length = cart.length;
@@ -47,7 +53,7 @@ const Header = () => {
                 <Button
                     color="link"
                     className="header-option"
-                    onClick={signedIn ? logout : login}
+                    onClick={handleAuth}
                     title={signedIn ? "Signout" : "Singin"}
                 >
                     <span

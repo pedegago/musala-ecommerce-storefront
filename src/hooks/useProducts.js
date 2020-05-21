@@ -8,7 +8,7 @@ const useProducts = () => {
         const list = [
             {
                 id: "a",
-                name: "Big Smile",
+                name: "😀 Big Smile",
                 bestseller: true,
                 on_sale: false,
                 description:
@@ -22,11 +22,11 @@ const useProducts = () => {
             },
             {
                 id: "b",
-                name: "Coffee Cup",
+                name: "☕ Coffee Cup",
                 best_seller: false,
                 on_sale: true,
                 description:
-                    "The Big Smile artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
+                    "The Coffee Cup artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
                 price: 5.21,
                 url: "coffee-cup",
                 image:
@@ -36,11 +36,11 @@ const useProducts = () => {
             },
             {
                 id: "c",
-                name: "Good Morning",
+                name: "☀ Good Morning",
                 bestseller: true,
                 on_sale: true,
                 description:
-                    "The Big Smile artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
+                    "The Good Morning artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
                 price: 5.21,
                 url: "good-morning",
                 image:
@@ -50,11 +50,11 @@ const useProducts = () => {
             },
             {
                 id: "d",
-                name: "Painting",
+                name: "🎨 Painting",
                 bestseller: true,
                 on_sale: false,
                 description:
-                    "The Big Smile artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
+                    "The Painting artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
                 price: 5.21,
                 url: "painting",
                 image:
@@ -64,11 +64,11 @@ const useProducts = () => {
             },
             {
                 id: "e",
-                name: "Sun Glasses",
+                name: "😎 Sun Glasses",
                 best_seller: false,
                 on_sale: true,
                 description:
-                    "The Big Smile artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
+                    "The Sun Glasses artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
                 price: 5.21,
                 url: "sun-glasses",
                 image:
@@ -78,11 +78,11 @@ const useProducts = () => {
             },
             {
                 id: "f",
-                name: "Giant OK",
+                name: "🆗 Giant OK",
                 bestseller: true,
                 on_sale: true,
                 description:
-                    "The Big Smile artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
+                    "The Giant OK artwork is a really cool image designed for any room sizes. Manufactured specially for this store. Contains a Musala Soft pet which is adorable and cool. We recommend this article because of its style.",
                 price: 5.21,
                 url: "giant-ok",
                 image:
