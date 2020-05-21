@@ -10,7 +10,7 @@
     }
 
     .checkout-summary-wrapper {
-        @extend  .border, .rounded, .p-4;
+        @extend  .bg-light, .border, .rounded, .p-4;
     }
 
     li {

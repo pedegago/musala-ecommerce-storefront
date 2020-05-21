@@ -64,10 +64,10 @@ const Checkout = () => {
                 <CartEmpty />
             ) : (
                 <Row>
-                    <Col md={5} className="checkout-summary">
+                    <Col md={5} lg={4} className="checkout-summary">
                         <Summary />
                     </Col>
-                    <Col tag="form" md={7}>
+                    <Col tag="form" md={7} lg={6} xl={5}>
                         <h2>Shipping & Billing</h2>
                         {["email", "fullname", "address"].map(f => (
                             <FormGroup key={f}>

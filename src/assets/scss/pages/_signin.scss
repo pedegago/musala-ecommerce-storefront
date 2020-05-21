@@ -4,10 +4,7 @@
     }
 
     span[role="img"] {
-        @extend .p-3, .border, .rounded-circle, .bg-white, .h3, .d-block, .mx-auto, .mb-3;
-
-        @include _size(63px);
-        line-height: 1;
+        @extend .h3, .d-block, .mx-auto, .mb-4, .text-center;
     }
 
     form {
