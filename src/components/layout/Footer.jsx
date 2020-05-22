@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Nav, NavLink } from "reactstrap";
-import { ReactComponent as Logo } from "../../assets/images/logo.svg";
+import Logo from "../base/Logo";
 
 const Footer = () => {
     return (

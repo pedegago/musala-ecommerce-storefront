@@ -10,7 +10,7 @@ import {
     Button,
     Badge
 } from "reactstrap";
-import { ReactComponent as Logo } from "../../assets/images/logo.svg";
+import Logo from "../base/Logo";
 import { stateContext } from "../contexts/StateProvider";
 import useAuth from "../../hooks/useAuth";
 

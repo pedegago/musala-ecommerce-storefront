@@ -9,11 +9,28 @@
     @include font(22px, 200);
 
     @include media-breakpoint-up(md) {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border: 6px solid $secondary;
         max-width: 280px;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
         z-index: 1;
+        margin-top: 10px;
+        animation-name: title;
+        animation-duration: 3.6s;
+        transform-origin: center top;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    &::before {
+        @extend .d-block, .bg-light, .mx-auto, .rounded-circle, .shadow;
+
+        @include _size(12px);
+
+        content: '';
+        transform: translateY(-33px);
     }
 }
 
@@ -49,7 +66,7 @@
 
 .reviews {
     img {
-        @extend .rounded-circle, .shadow, .mx-auto, .mb-4;
+        @extend .rounded-circle, .shadow, .mx-auto, .mb-3;
     }
 
     blockquote {

@@ -7,7 +7,6 @@ import useValidator from "../hooks/useValidator";
 import { checkoutRules } from "../utils/constants";
 import Summary from "../components/base/cart/Summary";
 import useOrder from "../hooks/useOrder";
-import cards from "../assets/images/cards.png";
 import useCart from "../hooks/useCart";
 import CartEmpty from "../components/base/cart/CartEmpty";
 
@@ -76,6 +75,13 @@ const Checkout = () => {
                                     inputs={inputs}
                                     validator={validator}
                                     inputChange={handleInput}
+                                    {...(f === "email"
+                                        ? {
+                                              help: `You can do purchases with any valid email,
+                                                  but I suggest you purchase as: musala.soft@example.com
+                                                  in order to see your orders when signed in.`
+                                          }
+                                        : {})}
                                 />
                             </FormGroup>
                         ))}
@@ -98,7 +104,10 @@ const Checkout = () => {
                         </Row>
                         <h2 className="d-flex justify-content-between">
                             Payment
-                            <img src={cards} alt="Payment cards" />
+                            <img
+                                src={`${process.env.REACT_APP_ASSETS_URL}/cards.png`}
+                                alt="Payment cards"
+                            />
                         </h2>
                         <FormGroup>
                             <Input

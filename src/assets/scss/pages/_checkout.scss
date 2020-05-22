@@ -13,6 +13,10 @@
         @extend  .bg-light, .border, .rounded, .p-4;
     }
 
+    table {
+        @extend .mt-4;
+    }
+
     li {
         &:first-of-type {
             @extend .mt-3;

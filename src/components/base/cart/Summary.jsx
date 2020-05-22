@@ -14,7 +14,6 @@ const Summary = () => {
             <h2>Order summary</h2>
             <p className="mt-2">
                 <strong>{cart.length}</strong> Items in cart
-                <hr />
             </p>
             <Table borderless size="sm">
                 <tbody>
