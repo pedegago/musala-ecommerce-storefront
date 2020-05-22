@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "reactstrap";
-import Product from "../components/base/Product";
-import useProducts from "../hooks/useProducts";
-import Reviews from "../components/base/Reviews";
+import Product from "../base/Product";
+import useProducts from "../../hooks/useProducts";
+import Reviews from "../base/Reviews";
 import Error404 from "./404";
 
 const Details = () => {

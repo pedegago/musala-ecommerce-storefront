@@ -13,7 +13,9 @@ const Reviews = () => {
                         src={`${images}/carmen-annova.jpg`}
                         alt="Carmen Annova"
                     />
-                    <p>⭐⭐⭐</p>
+                    <span role="img" aria-label="3 stars">
+                        ⭐⭐⭐
+                    </span>
                     <br />
                     This store is the greatest one. Yesterday I installed my
                     framed artwork on my wall and it looks beautifull now.
@@ -24,7 +26,9 @@ const Reviews = () => {
                         src={`${images}/yonel-garvik.jpg`}
                         alt="Yonel Garvik"
                     />
-                    <p>⭐⭐⭐⭐⭐</p>
+                    <span role="img" aria-label="5 stars">
+                        ⭐⭐⭐⭐⭐
+                    </span>
                     <br />
                     Never I meet a store like this. For that reason, when I need
                     a new framed artwork, I will purchase on this store.
@@ -35,7 +39,9 @@ const Reviews = () => {
                         src={`${images}/jasmin-putranka.jpg`}
                         alt="Carmen Annova"
                     />
-                    <p>⭐⭐⭐⭐</p>
+                    <span role="img" aria-label="4 stars">
+                        ⭐⭐⭐⭐
+                    </span>
                     <br />
                     Great! Now I have a beautifull framed artwork in my home. I
                     will come back to this store as soon as possible.

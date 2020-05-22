@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Form, FormGroup, Label, Input } from "reactstrap";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Profile = () => {
     const { auth } = useAuth();

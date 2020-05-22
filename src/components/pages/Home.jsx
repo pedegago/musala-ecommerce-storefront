@@ -1,8 +1,8 @@
 import React from "react";
 import { Container } from "reactstrap";
-import Hero from "../components/base/Hero";
-import BestSellers from "../components/base/BestSellers";
-import Reviews from "../components/base/Reviews";
+import Hero from "../base/Hero";
+import BestSellers from "../base/BestSellers";
+import Reviews from "../base/Reviews";
 
 const heroItems = [
     {

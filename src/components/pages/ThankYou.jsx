@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { Container, Button } from "reactstrap";
-import useCart from "../hooks/useCart";
-import useOrder from "../hooks/useOrder";
+import useCart from "../../hooks/useCart";
+import useOrder from "../../hooks/useOrder";
 
 const ThankYou = () => {
     const { cart, remove } = useCart();

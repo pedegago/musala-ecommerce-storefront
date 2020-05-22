@@ -1,8 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { stateContext } from "../components/contexts/StateProvider";
 import { getStorage, setStorage } from "../utils/utils";
 
 const useCart = () => {
+    const [loading, setLoading] = useState(true);
+
     const {
         state: { cart },
         setState
@@ -12,6 +14,8 @@ const useCart = () => {
         const cart = getStorage("cart") || [];
 
         setState({ cart });
+
+        setLoading(false);
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -50,7 +54,7 @@ const useCart = () => {
         setState({ cart: items });
     };
 
-    return { cart, add, remove, update };
+    return { cart, loading, add, remove, update };
 };
 
 export default useCart;

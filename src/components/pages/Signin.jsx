@@ -7,11 +7,11 @@ import {
     Spinner,
     UncontrolledAlert
 } from "reactstrap";
-import Input from "../components/base/Input";
-import useForm from "../hooks/useForm";
-import useValidator from "../hooks/useValidator";
-import { signinRules } from "../utils/constants";
-import useAuth from "../hooks/useAuth";
+import Input from "../base/Input";
+import useForm from "../../hooks/useForm";
+import useValidator from "../../hooks/useValidator";
+import { signinRules } from "../../utils/constants";
+import useAuth from "../../hooks/useAuth";
 
 const Signin = () => {
     const [loading, setLoading] = useState(false);

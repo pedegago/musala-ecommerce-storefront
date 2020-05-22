@@ -69,6 +69,10 @@
         @extend .rounded-circle, .shadow, .mx-auto, .mb-3;
     }
 
+    span[role="img"] {
+        @extend .d-block;
+    }
+
     blockquote {
         @extend .text-center;
 

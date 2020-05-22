@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Button } from "reactstrap";
-import useAuth from "../hooks/useAuth";
+import { Container } from "reactstrap";
+// import useAuth from "../../hooks/useAuth";
 
 const Orders = () => {
-    const { auth } = useAuth();
+    // const { auth } = useAuth();
 
     return (
         <Container tag="section" className="spacing">

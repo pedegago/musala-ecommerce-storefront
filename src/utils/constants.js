@@ -1,3 +1,7 @@
+export const emailHelp = `You can do purchases with any valid email,
+but I suggest you purchase as: musala.soft@example.com
+in order to see your orders when signed in.`;
+
 export const checkoutRules = [
     {
         field: "email",

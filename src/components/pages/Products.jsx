@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import Product from "../components/base/Product";
-import useProducts from "../hooks/useProducts";
+import Product from "../base/Product";
+import useProducts from "../../hooks/useProducts";
 
 const Products = () => {
     const products = useProducts();

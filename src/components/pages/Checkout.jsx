@@ -1,16 +1,18 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Container, Row, Col, FormGroup, Button } from "reactstrap";
-import Input from "../components/base/Input";
-import useForm from "../hooks/useForm";
-import useValidator from "../hooks/useValidator";
-import { checkoutRules } from "../utils/constants";
-import Summary from "../components/base/cart/Summary";
-import useOrder from "../hooks/useOrder";
-import useCart from "../hooks/useCart";
-import CartEmpty from "../components/base/cart/CartEmpty";
+import { Container, Row, Col, FormGroup, Button, Spinner } from "reactstrap";
+import Input from "../base/Input";
+import useForm from "../../hooks/useForm";
+import useValidator from "../../hooks/useValidator";
+import { checkoutRules, emailHelp } from "../../utils/constants";
+import Summary from "../base/cart/Summary";
+import useOrder from "../../hooks/useOrder";
+import useCart from "../../hooks/useCart";
+import CartEmpty from "../base/cart/CartEmpty";
 
 const Checkout = () => {
+    const [loading, setLoading] = useState(true);
+
     const { inputs, setInputs, inputChange } = useForm();
 
     const {
@@ -23,18 +25,16 @@ const Checkout = () => {
         ...paymentInputs
     });
 
-    const loading = useRef(true);
-
     const history = useHistory();
 
     const { order, update } = useOrder();
 
-    const { cart } = useCart();
+    const { cart, loading: loadingCart } = useCart();
 
     useEffect(() => {
-        loading.current = false;
-
         setInputs(order);
+
+        setLoading(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [order]);
 
@@ -51,14 +51,21 @@ const Checkout = () => {
 
         if (!isValid) return;
 
+        setLoading(true);
+
         history.push("/thank-you", { from_checkout: true });
+
+        setLoading(false);
     };
 
     return (
         <Container tag="section" className="checkout spacing">
             <h1 className="title">Checkout</h1>
-            {loading.current ? (
-                "Loading..."
+            {loadingCart ? (
+                <>
+                    <Spinner size="sm" className="mr-2" />
+                    Loading...
+                </>
             ) : !cart.length ? (
                 <CartEmpty />
             ) : (
@@ -76,11 +83,7 @@ const Checkout = () => {
                                     validator={validator}
                                     inputChange={handleInput}
                                     {...(f === "email"
-                                        ? {
-                                              help: `You can do purchases with any valid email,
-                                                  but I suggest you purchase as: musala.soft@example.com
-                                                  in order to see your orders when signed in.`
-                                          }
+                                        ? { help: emailHelp }
                                         : {})}
                                 />
                             </FormGroup>
@@ -137,6 +140,9 @@ const Checkout = () => {
                         </Row>
                         <FormGroup className="text-right mt-4 mb-0">
                             <Button color="primary" onClick={pay}>
+                                {loading && (
+                                    <Spinner size="sm" className="mr-2" />
+                                )}
                                 Pay order
                             </Button>
                         </FormGroup>

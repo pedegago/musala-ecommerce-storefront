@@ -9,7 +9,7 @@ import Details from "../pages/Details";
 import Checkout from "../pages/Checkout";
 import ThankYou from "../pages/ThankYou";
 import Error404 from "../pages/404";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const AuthRoute = ({ signedIn, children, ...props }) => (
     <Route
@@ -47,7 +47,9 @@ const Routes = () => {
                 <Profile />
             </AuthRoute>
 
-            <AuthRoute path="/orders" signedIn={signedIn} />
+            <AuthRoute path="/orders" signedIn={signedIn}>
+                <Orders />
+            </AuthRoute>
 
             <Route component={Error404} />
         </Switch>
