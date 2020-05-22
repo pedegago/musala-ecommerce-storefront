@@ -27,7 +27,7 @@ const Checkout = () => {
 
     const history = useHistory();
 
-    const { order, update } = useOrder();
+    const { order, update, add } = useOrder();
 
     const { cart, loading: loadingCart } = useCart();
 
@@ -53,9 +53,13 @@ const Checkout = () => {
 
         setLoading(true);
 
-        history.push("/thank-you", { from_checkout: true });
-
-        setLoading(false);
+        add()
+            .then(() => {
+                history.push("/thank-you", { from_checkout: true });
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     };
 
     return (
@@ -112,6 +116,11 @@ const Checkout = () => {
                                 alt="Payment cards"
                             />
                         </h2>
+                        <small className="checkout-payment-note">
+                            Your payment information will be not persisted in
+                            the local storage for security purposes.
+                        </small>
+                        <br />
                         <FormGroup>
                             <Input
                                 name="credit_card"

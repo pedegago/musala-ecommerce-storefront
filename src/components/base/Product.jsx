@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import Counter from "./Counter";
 
 const Product = ({ product, details }) => {
-    const { thumbnail, url, name, price, on_sale, description } = product;
+    const {
+        image,
+        thumbnail,
+        url,
+        name,
+        price,
+        on_sale,
+        description
+    } = product;
 
     const fullUrl = `/products/${url}`;
 
@@ -11,7 +19,7 @@ const Product = ({ product, details }) => {
         <div className={`product ${details ? "" : "product-card"}`}>
             {on_sale && <p className="product-label">On sale!</p>}
             <Link to={fullUrl} title="Product details">
-                <img src={thumbnail} alt={name} />
+                <img src={details ? image : thumbnail} alt={name} />
             </Link>
             <div className="product-body">
                 <Link to={fullUrl} title="Product details">

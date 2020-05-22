@@ -28,4 +28,8 @@
             border-bottom: 0!important;
         }
     }
+
+    .checkout-payment-note {
+        @extend .text-muted, .d-inline-block, .mb-3;
+    }
 }

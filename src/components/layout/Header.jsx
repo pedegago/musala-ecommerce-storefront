@@ -46,7 +46,7 @@ const Header = () => {
 
     return (
         <header>
-            <Navbar color="dark" dark expand="sm">
+            <Navbar color="dark" dark expand="md">
                 <NavbarBrand tag={Link} to="/" title="Go to home">
                     <Logo />
                 </NavbarBrand>
@@ -95,7 +95,7 @@ const Header = () => {
                         >
                             Products
                         </NavLink>
-                        {signedIn && (
+                        {signedIn ? (
                             <>
                                 <NavLink tag={Link} to="/orders" title="Orders">
                                     Orders
@@ -108,6 +108,10 @@ const Header = () => {
                                     Profile
                                 </NavLink>
                             </>
+                        ) : (
+                            <NavLink tag="span" className="text-secondary">
+                                Sign in for more options!
+                            </NavLink>
                         )}
                     </Nav>
                 </Collapse>

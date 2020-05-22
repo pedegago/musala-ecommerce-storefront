@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-    Container,
-    Form,
-    FormGroup,
-    Button,
-    Spinner,
-    UncontrolledAlert
-} from "reactstrap";
+import { Container, Form, FormGroup, Button, Spinner, Alert } from "reactstrap";
 import Input from "../base/Input";
 import useForm from "../../hooks/useForm";
 import useValidator from "../../hooks/useValidator";
@@ -42,6 +35,8 @@ const Signin = () => {
             });
     };
 
+    const closeAlert = () => setError("");
+
     return (
         <Container tag="section" className="signin spacing">
             <h1 className="title">Sign in</h1>
@@ -49,9 +44,9 @@ const Signin = () => {
                 <span role="img" aria-label="Singin">
                     🔓
                 </span>
-                <UncontrolledAlert isOpen={!!error} color="danger">
+                <Alert isOpen={!!error} toggle={closeAlert} color="danger">
                     {error}
-                </UncontrolledAlert>
+                </Alert>
                 <FormGroup>
                     <Input
                         name="username"
