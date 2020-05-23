@@ -1,10 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { stateContext } from "../components/contexts/StateProvider";
 import { setStorage, getStorage } from "../utils/utils";
 
 const useAuth = () => {
+    const [loading, setLoading] = useState(true);
+
     const {
         state: { auth },
         setState
@@ -20,6 +22,8 @@ const useAuth = () => {
         const storage = getStorage("auth") || {};
 
         setState({ auth: { ...storage } });
+
+        setLoading(false);
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -44,7 +48,7 @@ const useAuth = () => {
 
         setState({ auth: {} });
 
-        if (["/profile", "/orders"].includes(location.pathname)) return;
+        if (!["/profile", "/orders"].includes(location.pathname)) return;
 
         history.push("/");
     };
@@ -54,7 +58,7 @@ const useAuth = () => {
             ? {}
             : { "x-access-token": auth.accessToken };
 
-    return { auth, signedIn, signin, signout, authHeader };
+    return { auth, signedIn, signin, signout, authHeader, loading };
 };
 
 export default useAuth;

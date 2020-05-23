@@ -33,7 +33,7 @@ const Counter = ({ product }) => {
         <div className="counter">
             {quantity === 0 ? (
                 <Button color="primary" block onClick={addItem}>
-                    Add to cart
+                    Add <span className="d-none d-sm-inline">to cart</span>
                 </Button>
             ) : (
                 <InputGroup>

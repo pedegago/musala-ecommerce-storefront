@@ -1,6 +1,6 @@
 .details {
     .product {
-        @extend .row;
+        @extend .row, .position-relative;
     }
 
     h2 {

@@ -11,17 +11,23 @@ import ThankYou from "../pages/ThankYou";
 import Error404 from "../pages/404";
 import useAuth from "../../hooks/useAuth";
 
-const AuthRoute = ({ signedIn, children, ...props }) => (
+const AuthRoute = ({ children, signedIn, loading, ...props }) => (
     <Route
         {...props}
-        render={() =>
-            signedIn ? children : <Redirect to={{ pathname: "/signin" }} />
-        }
+        render={() => {
+            if (loading) return children;
+
+            return signedIn ? (
+                children
+            ) : (
+                <Redirect to={{ pathname: "/signin" }} />
+            );
+        }}
     />
 );
 
 const Routes = () => {
-    const { signedIn } = useAuth();
+    const { signedIn, loading } = useAuth();
 
     return (
         <Switch>
@@ -42,11 +48,11 @@ const Routes = () => {
                 }
             />
 
-            <AuthRoute path="/profile" signedIn={signedIn}>
+            <AuthRoute path="/profile" signedIn={signedIn} loading={loading}>
                 <Profile />
             </AuthRoute>
 
-            <AuthRoute path="/orders" signedIn={signedIn}>
+            <AuthRoute path="/orders" signedIn={signedIn} loading={loading}>
                 <Orders />
             </AuthRoute>
 

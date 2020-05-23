@@ -9,7 +9,7 @@ const Products = () => {
 
     return (
         <Container tag="section" className="products spacing">
-            <h1 className="title">Framed artworks</h1>
+            <h1 className="title">All artworks</h1>
             {loading ? (
                 <Loading />
             ) : (

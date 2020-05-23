@@ -8,7 +8,7 @@
     }
 
     form {
-        @extend .p-4, .bg-light, .border, .rounded-lg, .mx-auto;
+        @extend .p-4, .bg-light, .rounded-lg, .mx-auto, .shadow-sm;
 
         max-width: 340px;
     }

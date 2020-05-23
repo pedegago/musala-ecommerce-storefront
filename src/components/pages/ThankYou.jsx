@@ -1,27 +1,35 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { Container, Button } from "reactstrap";
 import useCart from "../../hooks/useCart";
 import useOrder from "../../hooks/useOrder";
 
 const ThankYou = () => {
-    const { cart, remove } = useCart();
+    const { removeAll } = useCart();
 
     const { order } = useOrder();
 
-    // const location = useLocation();
+    const location = useLocation();
 
-    // const history = useHistory();
+    const history = useHistory();
 
     const email = useRef(order.email);
 
-    // if (!location.state || !location.state.from_checkout) {
-    //     history.replace("/");
+    const fromCheckout = useRef(location.state && location.state.from_checkout);
 
-    //     return null;
-    // }
+    useEffect(() => {
+        if (!fromCheckout.current) return;
 
-    cart.forEach(i => remove(i.id));
+        removeAll();
+
+        history.replace(location.pathname, {});
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    if (!fromCheckout.current) {
+        history.replace("/");
+    }
 
     return (
         <Container tag="section" className="spacing">

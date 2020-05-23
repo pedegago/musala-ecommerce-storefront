@@ -62,7 +62,7 @@ const Checkout = () => {
         setLoading(true);
 
         add()
-            .then(() => history.push("/thank-you", { from_checkout: true }))
+            .then(() => history.replace("/thank-you", { from_checkout: true }))
             .catch(e => {
                 setLoading(false);
             });

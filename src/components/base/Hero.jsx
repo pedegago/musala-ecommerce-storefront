@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Container, Carousel, CarouselItem, CarouselControl } from "reactstrap";
+import { Link } from "react-router-dom";
+import {
+    Container,
+    Carousel,
+    CarouselItem,
+    CarouselControl,
+    Button
+} from "reactstrap";
 
 const Hero = ({ items }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -41,6 +48,9 @@ const Hero = ({ items }) => {
                     <Container className="hero-text">
                         <h2>{item.title}</h2>
                         <p>{item.caption}</p>
+                        <Button color="danger" tag={Link} to="/products">
+                            Shop now
+                        </Button>
                     </Container>
                 </CarouselItem>
             ))}

@@ -38,6 +38,12 @@ const useCart = () => {
         setState({ cart: items });
     };
 
+    const removeAll = () => {
+        setStorage("cart", []);
+
+        setState({ cart: [] });
+    };
+
     const update = (id, quantity) => {
         let items = [...cart];
 
@@ -54,7 +60,7 @@ const useCart = () => {
         setState({ cart: items });
     };
 
-    return { cart, loading, add, remove, update };
+    return { cart, loading, add, remove, removeAll, update };
 };
 
 export default useCart;

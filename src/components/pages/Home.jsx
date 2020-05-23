@@ -9,7 +9,7 @@ const heroItems = [
     {
         title: "See our summer's offers",
         caption:
-            "For this season we provice themed artworks. Install it and be the best employee of your office!"
+            "For this season we provide themed artworks. Install it and be the best employee of your office!"
     },
     {
         title: "We provide awesome artworks.",

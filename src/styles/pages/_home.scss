@@ -39,7 +39,7 @@
     .carousel-item {
         @extend .bg-primary;
 
-        height: 420px;
+        height: 440px;
     }
 
     .hero-text {
@@ -60,6 +60,14 @@
         }
     }
 
+    p {
+        @extend .mb-5, .mb-md-4;
+    }
+
+    a {
+        @extend .shadow-sm, .py-2, .px-3;
+    }
+
     h2 {
         @extend .mb-4, .text-dark;
 
@@ -72,7 +80,7 @@
 }
 
 .features {
-    @extend .py-5, .text-center, .text-muted;
+    @extend .py-4, .text-center, .text-muted;
 
     background-color: #f1f4f5;
 
@@ -107,7 +115,7 @@
 
 .reviews {
     img {
-        @extend .rounded-circle, .shadow, .mx-auto, .mb-3;
+        @extend .rounded-circle, .mx-auto, .mb-3, .shadow-sm;
     }
 
     span[role="img"] {
@@ -155,6 +163,4 @@
 
 .home-note {
     @extend .text-center, .text-danger;
-
-    max-width: 500px;
 }

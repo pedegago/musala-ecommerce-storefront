@@ -18,9 +18,9 @@ const Footer = () => {
                         World Trade Center 36, Dragan Tsankov blvd. Sofia 1057,
                         Bulgaria.
                         <br />
-                        <a href="mailto">musala@musala.com</a>
+                        <a href="mailto:">musala@musala.com</a>
                         <br />
-                        <a href="tel">+359 (2) 969 5821</a>
+                        <a href="tel:">+359 (2) 969 5821</a>
                     </Col>
                     <Nav vertical tag={Col} sm={6} md={3}>
                         <h2>Store</h2>
