@@ -29,3 +29,17 @@ export const setStorage = (key, value) => {
         localStorage.setItem(STORAGE_KEY, storage);
     } catch (e) {}
 };
+
+export const formatCard = card => {
+    let value = "";
+
+    card = card.replace(/-/g, "");
+
+    for (let i = 0; i < card.length; i++) {
+        if (i % 4 === 0 && i > 1) value += "-";
+
+        value += card[i];
+    }
+
+    return value;
+};

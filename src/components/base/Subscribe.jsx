@@ -13,7 +13,7 @@ const Subscribe = () => {
     };
 
     return (
-        <section className="subscribe">
+        <section className="subscribe d-print-none">
             <Container>
                 <Row
                     id="subscription-form"
@@ -30,6 +30,7 @@ const Subscribe = () => {
                             required
                             placeholder="Email address"
                             aria-label="Email"
+                            className="border-white"
                         />
                         <Button
                             type="submit"

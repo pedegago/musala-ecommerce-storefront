@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button, Row, Col, Modal, ModalBody as Body } from "reactstrap";
 import { stateContext } from "../../contexts/StateProvider";
 import useSummary from "../../../hooks/useSummary";
@@ -13,10 +13,14 @@ const Cart = () => {
 
     const { total } = useSummary();
 
+    const location = useLocation();
+
     const toggle = () =>
         setState({
             ui: { ...ui, cart_open: false }
         });
+
+    useEffect(toggle, [location.pathname]);
 
     const length = cart.length;
 
@@ -39,7 +43,6 @@ const Cart = () => {
                                 tag={Link}
                                 block
                                 color="primary"
-                                onClick={toggle}
                                 to="/checkout"
                             >
                                 Proceed to checkout

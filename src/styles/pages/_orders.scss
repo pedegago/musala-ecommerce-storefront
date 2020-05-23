@@ -1,0 +1,15 @@
+.orders {
+    .orders-print {
+        @extend .d-print-none, .ml-auto, .d-block, .mb-4;
+    }
+
+    table {
+        @extend .mb-0;
+
+        white-space: nowrap;
+
+        @media print {
+            white-space: initial;
+        }
+    }
+}

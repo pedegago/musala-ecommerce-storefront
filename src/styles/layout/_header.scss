@@ -1,6 +1,11 @@
 header {
     @extend .sticky-top, .shadow;
 
+    .navbar,
+    button {
+        @extend .d-print-none;
+    }
+
     .navbar-brand {
         svg {
             width: 35px;
@@ -16,10 +21,14 @@ header {
     }
 
     button {
-        @extend .order-md-1, .ml-4;
+        @extend .order-md-1;
 
         &:first-of-type {
             @extend .ml-auto;
+        }
+
+        &:not(:first-of-type) {
+            @extend .ml-4;
         }
     }
 

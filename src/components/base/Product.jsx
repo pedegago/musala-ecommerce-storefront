@@ -25,7 +25,11 @@ const Product = ({ product, details }) => {
                 <Link to={fullUrl} title="Product details">
                     <h2>{name}</h2>
                 </Link>
-                <p className="product-price">${price}</p>
+                <p className="product-price">
+                    ${price}
+                    <br />
+                    <small className="product-price">Plus applicable taxes</small>
+                </p>
                 {details && (
                     <div className="product-description">{description}</div>
                 )}

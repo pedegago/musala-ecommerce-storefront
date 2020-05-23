@@ -15,6 +15,7 @@ const _Input = ({ name, inputs, inputChange, help, validator, ...props }) => {
                 value={inputs[name] || ""}
                 onChange={inputChange}
                 invalid={validator[name].isInvalid}
+                {...props}
             />
             <FormFeedback>{validator[name].message}</FormFeedback>
             {help && <FormText>{help}</FormText>}

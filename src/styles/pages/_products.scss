@@ -1,12 +1,22 @@
+.products {
+    li {
+        @extend .mb-4;
+    }
+}
+
 .product-card {
-    @extend .d-flex, .flex-column, .pb-5;
+    @extend .d-flex, .flex-column, .p-3, .pb-4, .rounded-lg, .shadow-sm;
 
     height: 100%;
 
-    img {
-        @extend .mb-3, .mx-auto, .d-block;
+    &:hover {
+        background: linear-gradient(0, #f1f4f5, transparent 41%, transparent);
+    }
 
-        max-width: 80%;
+    img {
+        @extend .mx-auto, .d-block, .rounded, .mb-3;
+
+        max-width: 100%;
     }
 
     .product-body {

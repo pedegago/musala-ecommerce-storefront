@@ -17,12 +17,13 @@
 @import "./pages/home";
 @import "./pages/signin";
 @import "./pages/profile";
+@import "./pages/orders";
 @import "./pages/products";
 @import "./pages/details";
 @import "./pages/checkout";
 
-*,
-*::before,
-*::after {
-    outline: 1px solid red;
-}
+// *,
+// *::before,
+// *::after {
+//     outline: 1px solid red;
+// }

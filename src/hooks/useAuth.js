@@ -14,6 +14,8 @@ const useAuth = () => {
 
     const history = useHistory();
 
+    const signedIn = auth && auth.accessToken;
+
     useEffect(() => {
         const storage = getStorage("auth") || {};
 
@@ -33,11 +35,7 @@ const useAuth = () => {
                     setStorage("auth", res.data);
 
                     setState({ auth: res.data });
-
-                    history.replace(location.state.from || "/profile");
                 }
-
-                return res.data;
             });
     };
 
@@ -51,13 +49,10 @@ const useAuth = () => {
         history.push("/");
     };
 
-    const authHeader = () => {
-        return !auth || !auth.accessToken
+    const authHeader =
+        !auth || !auth.accessToken
             ? {}
             : { "x-access-token": auth.accessToken };
-    };
-
-    const signedIn = auth && auth.accessToken;
 
     return { auth, signedIn, signin, signout, authHeader };
 };

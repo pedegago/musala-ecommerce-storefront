@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Container, Spinner } from "reactstrap";
+import { Container } from "reactstrap";
 import Product from "../base/Product";
 import useProducts from "../../hooks/useProducts";
 import Reviews from "../base/Reviews";
 import Error404 from "./404";
+import Loading from "../base/Loading";
 
 const Details = () => {
     const params = useParams();
@@ -19,16 +20,9 @@ const Details = () => {
         <>
             <Container tag="section" className="details spacing">
                 <h1 className="title">Product details</h1>
-                {loading ? (
-                    <>
-                        <Spinner size="sm" className="mr-2" />
-                        Loading...
-                    </>
-                ) : (
-                    <Product product={product} details />
-                )}
+                {loading ? <Loading /> : <Product product={product} details />}
             </Container>
-            <Reviews />
+            {!loading && <Reviews />}
         </>
     );
 };

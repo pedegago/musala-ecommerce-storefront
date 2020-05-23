@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col, Spinner } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import Product from "../base/Product";
+import Loading from "../base/Loading";
 import useProducts from "../../hooks/useProducts";
 
 const Products = () => {
@@ -10,10 +11,7 @@ const Products = () => {
         <Container tag="section" className="products spacing">
             <h1 className="title">Framed artworks</h1>
             {loading ? (
-                <>
-                    <Spinner size="sm" className="mr-2" />
-                    Loading...
-                </>
+                <Loading />
             ) : (
                 <Row tag="ul">
                     {!products.length && (

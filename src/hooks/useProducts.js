@@ -7,13 +7,18 @@ const useProducts = () => {
     const products = useRef([]);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products`).then(res => {
-            products.current = res;
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products`)
+            .then(res => {
+                res.data.forEach(p => {
+                    p.id = p._id;
+                });
 
-            setLoading(false);
-        });
-
-        setLoading(false);
+                products.current = res.data;
+            })
+            .finally(() => {
+                setLoading(false);
+            });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

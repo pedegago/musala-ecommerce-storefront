@@ -4,11 +4,13 @@ import { Container, Row, Col, FormGroup, Button, Spinner } from "reactstrap";
 import Input from "../base/Input";
 import useForm from "../../hooks/useForm";
 import useValidator from "../../hooks/useValidator";
-import { checkoutRules, emailHelp } from "../../utils/constants";
 import Summary from "../base/cart/Summary";
 import useOrder from "../../hooks/useOrder";
 import useCart from "../../hooks/useCart";
 import CartEmpty from "../base/cart/CartEmpty";
+import Loading from "../base/Loading";
+import { formatCard } from "../../utils/utils";
+import { checkoutRules, emailHelp } from "../../utils/constants";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(true);
@@ -46,6 +48,12 @@ const Checkout = () => {
         update({ ...inputs, [object.name]: object.value });
     };
 
+    const handleCard = e => {
+        e.target.value = formatCard(e.target.value);
+
+        paymentInputChange(e);
+    };
+
     const pay = () => {
         isSubmited(true);
 
@@ -54,10 +62,8 @@ const Checkout = () => {
         setLoading(true);
 
         add()
-            .then(() => {
-                history.push("/thank-you", { from_checkout: true });
-            })
-            .finally(() => {
+            .then(() => history.push("/thank-you", { from_checkout: true }))
+            .catch(e => {
                 setLoading(false);
             });
     };
@@ -66,10 +72,7 @@ const Checkout = () => {
         <Container tag="section" className="checkout spacing">
             <h1 className="title">Checkout</h1>
             {loadingCart ? (
-                <>
-                    <Spinner size="sm" className="mr-2" />
-                    Loading...
-                </>
+                <Loading />
             ) : !cart.length ? (
                 <CartEmpty />
             ) : (
@@ -126,8 +129,9 @@ const Checkout = () => {
                                 name="credit_card"
                                 inputs={paymentInputs}
                                 validator={validator}
-                                inputChange={paymentInputChange}
-                                help="Format: 0000 0000 0000 0000"
+                                inputChange={handleCard}
+                                help="Format will be performed automatically."
+                                maxLength={19}
                             />
                         </FormGroup>
                         <Row form className="form-group">

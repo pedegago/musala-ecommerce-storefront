@@ -14,14 +14,8 @@ import useAuth from "../../hooks/useAuth";
 const AuthRoute = ({ signedIn, children, ...props }) => (
     <Route
         {...props}
-        render={({ location }) =>
-            signedIn ? (
-                children
-            ) : (
-                <Redirect
-                    to={{ pathname: "/signin", state: { from: location } }}
-                />
-            )
+        render={() =>
+            signedIn ? children : <Redirect to={{ pathname: "/signin" }} />
         }
     />
 );
@@ -41,7 +35,12 @@ const Routes = () => {
 
             <Route path="/thank-you" component={ThankYou} />
 
-            <Route path="/signin" component={Signin} />
+            <Route
+                path="/signin"
+                render={() =>
+                    !signedIn ? <Signin /> : <Redirect to={"/profile"} />
+                }
+            />
 
             <AuthRoute path="/profile" signedIn={signedIn}>
                 <Profile />

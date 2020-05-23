@@ -22,17 +22,17 @@ const Signin = () => {
     const handleSignin = () => {
         isSubmited(true);
 
+        closeAlert();
+
         if (!isValid) return;
 
         setLoading(true);
 
-        signin(inputs.username, inputs.password)
-            .catch(e => {
-                setError("Wrong user or password.");
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        signin(inputs.username, inputs.password).catch(e => {
+            setLoading(false);
+
+            setError("Wrong user or password.");
+        });
     };
 
     const closeAlert = () => setError("");

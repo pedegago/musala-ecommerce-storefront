@@ -1,5 +1,5 @@
 footer {
-    @extend .bg-primary, .py-4, .text-light;
+    @extend .bg-primary, .py-4, .text-light, .d-print-none;
 
     a {
         @extend .text-light;
@@ -21,7 +21,7 @@ footer {
         svg {
             width: 55px;
 
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 width: 75px;
             }
 

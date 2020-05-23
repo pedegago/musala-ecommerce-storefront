@@ -7,18 +7,27 @@ const Profile = () => {
 
     return (
         <Container tag="section" className="profile spacing">
-            <h1 className="title">Your profile, {auth.username}</h1>
+            <h1 className="title">Profile</h1>
             <Form>
+                <FormGroup>
+                    <Label for="token">Fullname</Label>
+                    <Input id="token" defaultValue={auth.fullname} readOnly />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="username">Username</Label>
+                    <Input
+                        id="username"
+                        defaultValue={auth.username}
+                        readOnly
+                    />
+                </FormGroup>
                 <FormGroup>
                     <Label for="token">Token</Label>
                     <Input
                         id="token"
                         defaultValue={`${auth.accessToken.substr(0, 20)}...`}
+                        readOnly
                     />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="username">Username</Label>
-                    <Input id="username" defaultValue={auth.username} />
                 </FormGroup>
             </Form>
         </Container>

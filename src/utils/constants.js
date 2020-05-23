@@ -54,7 +54,7 @@ export const checkoutRules = [
     {
         field: "credit_card",
         method: "matches",
-        args: [/^(\d{4}\s){3}\d{4}$/],
+        args: [/^(\d{4}-){3}\d{4}$/],
         validWhen: true,
         message: "Invalid card number."
     },

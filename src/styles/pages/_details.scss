@@ -29,6 +29,12 @@
         @extend .mt-2;
 
         @include font(24px);
+
+        small {
+            @extend .text-muted;
+
+            @include font(14px);
+        }
     }
 
     .product-description {

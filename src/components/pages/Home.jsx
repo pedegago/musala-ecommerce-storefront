@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "reactstrap";
 import Hero from "../base/Hero";
+import Features from "../base/Features";
 import BestSellers from "../base/BestSellers";
 import Reviews from "../base/Reviews";
 
@@ -24,6 +25,7 @@ const Home = () => {
                 This is a Musala Soft Framed Artworks Store for your wall.
             </h1>
             <Hero items={heroItems} />
+            <Features />
             <BestSellers />
             <Reviews />
             <Container tag="section" className="home-note spacing">

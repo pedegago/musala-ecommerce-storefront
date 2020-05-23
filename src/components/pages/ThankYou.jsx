@@ -9,26 +9,31 @@ const ThankYou = () => {
 
     const { order } = useOrder();
 
-    const location = useLocation();
+    // const location = useLocation();
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const email = useRef(order.email);
 
-    if (!location.state || !location.state.from_checkout) {
-        history.replace("/");
+    // if (!location.state || !location.state.from_checkout) {
+    //     history.replace("/");
 
-        return null;
-    }
+    //     return null;
+    // }
 
     cart.forEach(i => remove(i.id));
 
     return (
         <Container tag="section" className="spacing">
-            <h1 className="title">Thank You!</h1>
+            <h1 className="title">
+                Thank You!&nbsp;
+                <span role="img" aria-label="Congrats">
+                    🎉
+                </span>
+            </h1>
             <p>
                 Your order is being reviewed by our staff. You will receive a
-                confirmation email to <strong>{email.current}</strong>. If you
+                confirmation email at <strong>{email.current}</strong>. If you
                 don't hear from us within 24 hours, please contact us.
             </p>
             <Button color="primary" className="mt-3" tag={Link} to="/products">
