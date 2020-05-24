@@ -4,6 +4,9 @@
   "description": "A simple e-commerce project.",
   "main": "index.js",
   "repository": "https://github.com/pedegago/musala-ecommerce-storefront.git",
+  "engines": {
+    "node": "10.16.3"
+  },
   "author": "Pablo David Gago Ballester",
   "license": "MIT",
   "scripts": {
