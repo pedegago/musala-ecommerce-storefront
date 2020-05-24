@@ -57,34 +57,6 @@ const Profile = () => {
                 <Loading />
             ) : (
                 <Row>
-                    <Col md={5} lg={4} tag="aside">
-                        <h2>Location</h2>
-                        {fetching && <Loading />}
-                        <Alert
-                            isOpen={!!error}
-                            toggle={closeAlert}
-                            color="danger"
-                        >
-                            {error}
-                        </Alert>
-                        {!!position.length && (
-                            <>
-                                <figure>
-                                    <img
-                                        src={`https://static-maps.yandex.ru/1.x/?lang=en-US&ll=${position[0]},${position[1]}&z=13&l=map&size=338,338`}
-                                        alt="Your position"
-                                    />
-                                </figure>
-                                <p>
-                                    Your current location is:
-                                    <br />
-                                    <strong>Latitude:</strong> {position[0]}
-                                    <br />
-                                    <strong>Longitude:</strong> {position[1]}
-                                </p>
-                            </>
-                        )}
-                    </Col>
                     <Col tag={Form} md={7} lg={6} xl={5}>
                         <h2>User information</h2>
                         <FormGroup>
@@ -114,6 +86,34 @@ const Profile = () => {
                                 readOnly
                             />
                         </FormGroup>
+                    </Col>
+                    <Col md={5} lg={4} tag="aside">
+                        <h2>Location</h2>
+                        {fetching && <Loading />}
+                        <Alert
+                            isOpen={!!error}
+                            toggle={closeAlert}
+                            color="danger"
+                        >
+                            {error}
+                        </Alert>
+                        {!!position.length && (
+                            <>
+                                <figure>
+                                    <img
+                                        src={`https://static-maps.yandex.ru/1.x/?lang=en-US&ll=${position[0]},${position[1]}&z=6&l=map&size=338,338`}
+                                        alt="Your location"
+                                    />
+                                </figure>
+                                <p>
+                                    Your current location is:
+                                    <br />
+                                    <strong>Latitude:</strong> {position[0]}
+                                    <br />
+                                    <strong>Longitude:</strong> {position[1]}
+                                </p>
+                            </>
+                        )}
                     </Col>
                 </Row>
             )}
