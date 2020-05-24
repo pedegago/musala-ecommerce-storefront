@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink as Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink as Link, useLocation } from "react-router-dom";
 import {
     Collapse,
     Navbar,
@@ -18,7 +18,11 @@ const Header = () => {
 
     const { signedIn } = useAuth();
 
+    const location = useLocation();
+
     const toggle = () => setIsOpen(isOpen => !isOpen);
+
+    useEffect(() => setIsOpen(false), [location.pathname]);
 
     return (
         <header>
