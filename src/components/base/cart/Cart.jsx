@@ -45,7 +45,10 @@ const Cart = () => {
                                 color="primary"
                                 to="/checkout"
                             >
-                                Proceed to checkout
+                                <span className="d-none d-sm-inline">
+                                    Proceed to
+                                </span>{" "}
+                                Checkout
                             </Button>
                         </Col>
                         <Col tag="ul" xs={12}>
