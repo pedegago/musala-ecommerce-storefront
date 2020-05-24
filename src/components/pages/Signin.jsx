@@ -67,7 +67,12 @@ const Signin = () => {
                     />
                 </FormGroup>
                 <FormGroup className="mt-4 mb-0">
-                    <Button color="primary" block onClick={handleSignin}>
+                    <Button
+                        disabled={loading}
+                        color="primary"
+                        block
+                        onClick={handleSignin}
+                    >
                         {loading && <Spinner size="sm" className="mr-2" />}
                         Sign in
                     </Button>

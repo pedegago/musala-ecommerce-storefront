@@ -152,7 +152,11 @@ const Checkout = () => {
                             ))}
                         </Row>
                         <FormGroup className="text-right mt-4 mb-0">
-                            <Button color="primary" onClick={pay}>
+                            <Button
+                                disabled={loading}
+                                color="primary"
+                                onClick={pay}
+                            >
                                 {loading && (
                                     <Spinner size="sm" className="mr-2" />
                                 )}
