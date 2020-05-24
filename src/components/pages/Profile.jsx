@@ -101,7 +101,7 @@ const Profile = () => {
                             <>
                                 <figure>
                                     <img
-                                        src={`https://static-maps.yandex.ru/1.x/?lang=en-US&ll=${position[1]},${position[0]}&z=6&l=map&size=338,338`}
+                                        src={`https://static-maps.yandex.ru/1.x/?lang=en-US&ll=${position[1]},${position[0]}&z=13&l=map&size=338,338`}
                                         alt="Your location"
                                     />
                                 </figure>
