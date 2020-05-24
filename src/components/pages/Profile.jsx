@@ -48,8 +48,6 @@ const Profile = () => {
         }
     }, []);
 
-    const closeAlert = () => setError("");
-
     return (
         <Container tag="section" className="profile spacing">
             <h1 className="title">Profile</h1>
@@ -90,18 +88,14 @@ const Profile = () => {
                     <Col md={5} lg={4} tag="aside">
                         <h2>Location</h2>
                         {fetching && <Loading />}
-                        <Alert
-                            isOpen={!!error}
-                            toggle={closeAlert}
-                            color="danger"
-                        >
+                        <Alert isOpen={!!error} color="danger">
                             {error}
                         </Alert>
                         {!!position.length && (
                             <>
                                 <figure>
                                     <img
-                                        src={`https://static-maps.yandex.ru/1.x/?lang=en-US&ll=${position[1]},${position[0]}&z=13&l=map&size=338,338`}
+                                        src={`https://static-maps.yandex.ru/1.x/?lang=en-US&ll=${position[1]},${position[0]}&z=10&l=map&size=338,338`}
                                         alt="Your location"
                                     />
                                 </figure>
