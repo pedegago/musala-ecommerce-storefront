@@ -77,7 +77,7 @@ const Checkout = () => {
                 <CartEmpty />
             ) : (
                 <Row>
-                    <Col md={5} lg={4} className="checkout-summary">
+                    <Col md={5} lg={4} tag="aside" className="checkout-summary">
                         <Summary />
                     </Col>
                     <Col tag="form" md={7} lg={6} xl={5}>
@@ -90,7 +90,7 @@ const Checkout = () => {
                                     validator={validator}
                                     inputChange={handleInput}
                                     {...(f === "email"
-                                        ? { help: emailHelp }
+                                        ? { help: emailHelp, type: "email" }
                                         : {})}
                                 />
                             </FormGroup>
@@ -146,7 +146,10 @@ const Checkout = () => {
                                         inputs={paymentInputs}
                                         validator={validator}
                                         inputChange={paymentInputChange}
+                                        type="number"
                                         help={f[1]}
+                                        pattern="[0-9]*"
+                                        inputMode="numeric"
                                     />
                                 </Col>
                             ))}

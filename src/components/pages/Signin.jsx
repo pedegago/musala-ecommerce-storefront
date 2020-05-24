@@ -31,7 +31,7 @@ const Signin = () => {
         signin(inputs.username, inputs.password).catch(e => {
             setLoading(false);
 
-            setError("Wrong user or password.");
+            setError("Bad user or password.");
         });
     };
 

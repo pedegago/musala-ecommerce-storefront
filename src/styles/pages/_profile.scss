@@ -1,5 +1,21 @@
 .profile {
-    form {
-        max-width: 340px;
+    h2 {
+        @extend .mb-4;
+
+        @include font(19px, 200);
+    }
+
+    aside {
+        @extend .order-md-1, .mb-4, .mb-md-0;
+    }
+
+    figure {
+        @extend .bg-light, .shadow-sm, .rounded, .p-4;
+    }
+
+    img {
+        @extend .rounded;
+
+        width: 100%;
     }
 }
